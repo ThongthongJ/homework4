@@ -140,8 +140,7 @@ class _BoxingscoreState extends State<Boxingscore> {
           Expanded(
             child: Column(
               children: [
-                for (int i = 0; i < _round; ++
-                i) _scoreBoard(Round: i + 1),
+                for (int i = 0; i < _round; ++i) _scoreBoard(Round: i + 1),
                 if (_round == 3) _scoreTotal(),
               ],
             ),
@@ -246,6 +245,7 @@ class _BoxingscoreState extends State<Boxingscore> {
           //   ],
           // ),
           _round == 3 ? _resetButton() : _scoreButton(),
+          SizedBox(height: 5),
         ],
       ),
     );
