@@ -145,11 +145,11 @@ class _BoxingscoreState extends State<Boxingscore> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    '$_sumRed',
+                    '$_scoreRed',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
                   ),
                   Text(
-                    '$_sumBlue',
+                    '$_scoreBlue',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
                   ),
                 ],
@@ -169,11 +169,11 @@ class _BoxingscoreState extends State<Boxingscore> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    '$_sumRed',
+                    '$_scoreRed',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
                   ),
                   Text(
-                    '$_sumBlue',
+                    '$_scoreBlue',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
                   ),
                 ],
@@ -193,11 +193,11 @@ class _BoxingscoreState extends State<Boxingscore> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    '$_sumRed',
+                    '$_scoreRed',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
                   ),
                   Text(
-                    '$_sumBlue',
+                    '$_scoreBlue',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
                   ),
                 ],
@@ -248,7 +248,8 @@ class _BoxingscoreState extends State<Boxingscore> {
             onPressed: () {
               _round++;
               setState(() {
-                _sumRed += _scoreRed;
+                _sumRed += _scoreRed + 1;
+                _sumBlue += 9;
               });
             },
             child: Icon(Icons.person),
@@ -265,7 +266,8 @@ class _BoxingscoreState extends State<Boxingscore> {
             onPressed: () {
               _round++;
               setState(() {
-                _sumBlue += _scoreBlue;
+                _sumBlue += _scoreBlue + 1;
+                _sumRed += 9;
               });
             },
             child: Icon(Icons.person),
