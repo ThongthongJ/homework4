@@ -16,6 +16,7 @@ int _round = 0;
 class _BoxingscoreState extends State<Boxingscore> {
   @override
   Widget build(BuildContext context) {
+    print(_round);
     return Scaffold(
       appBar: AppBar(
         title: Text('OLYMPIC BOXING SCORING'),
