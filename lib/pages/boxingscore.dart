@@ -7,7 +7,10 @@ class Boxingscore extends StatefulWidget {
   State<Boxingscore> createState() => _BoxingscoreState();
 }
 
-int _scoreRed = 9 ;
+List<int> _scoreR = [];
+List<int> _scoreB = [];
+int _scoreRed = 9;
+
 int _scoreBlue = 9;
 int _sumRed = 0;
 int _sumBlue = 0;
@@ -134,105 +137,114 @@ class _BoxingscoreState extends State<Boxingscore> {
             ],
           ),
           SizedBox(height: 20),
+          Expanded(
+            child: Column(
+              children: [
+                for (int i = 0; i < _round; ++
+                i) _scoreBoard(Round: i + 1),
+                if (_round == 3) _scoreTotal(),
+              ],
+            ),
+          ),
           // score board
 
-          Column(
-            children: [
-              Text(
-                'ROUND 1',
-                style: TextStyle(fontSize: 12),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    '$_scoreRed',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    '$_scoreBlue',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                ],
-              ),
-              Divider(
-                color: Color(0xCD949494),
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Text(
-                'ROUND 2',
-                style: TextStyle(fontSize: 12),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    '$_scoreRed',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    '$_scoreBlue',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                ],
-              ),
-              Divider(
-                color: Color(0xCD949494),
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Text(
-                'ROUND 3',
-                style: TextStyle(fontSize: 12),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    '$_scoreRed',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    '$_scoreBlue',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                ],
-              ),
-              Divider(
-                color: Color(0xCD949494),
-              ),
-            ],
-          ),
-          SizedBox(height: 10), // score board TOTAL
-          Column(
-            children: [
-              Text(
-                'TOTAL',
-                style: TextStyle(fontSize: 12),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    '$_sumRed',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    '$_sumBlue',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-                  ),
-                ],
-              ),
-              Divider(
-                color: Color(0xCD949494),
-              ),
-            ],
-          ),
+          // Column(
+          //   children: [
+          //     Text(
+          //       'ROUND 1',
+          //       style: TextStyle(fontSize: 12),
+          //     ),
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //       children: [
+          //         Text(
+          //           '10',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //         Text(
+          //           '$_scoreBlue',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //       ],
+          //     ),
+          //     Divider(
+          //       color: Color(0xCD949494),
+          //     ),
+          //   ],
+          // ),
+          // Column(
+          //   children: [
+          //     Text(
+          //       'ROUND 2',
+          //       style: TextStyle(fontSize: 12),
+          //     ),
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //       children: [
+          //         Text(
+          //           '10',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //         Text(
+          //           '$_scoreBlue',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //       ],
+          //     ),
+          //     Divider(
+          //       color: Color(0xCD949494),
+          //     ),
+          //   ],
+          // ),
+          // Column(
+          //   children: [
+          //     Text(
+          //       'ROUND $_round',
+          //       style: TextStyle(fontSize: 12),
+          //     ),
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //       children: [
+          //         Text(
+          //           '$_scoreRed',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //         Text(
+          //           '$_scoreBlue',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //       ],
+          //     ),
+          //     Divider(
+          //       color: Color(0xCD949494),
+          //     ),
+          //   ],
+          // ),
+          // SizedBox(height: 10), // score board TOTAL
+          // Column(
+          //   children: [
+          //     Text(
+          //       'TOTAL',
+          //       style: TextStyle(fontSize: 12),
+          //     ),
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //       children: [
+          //         Text(
+          //           '$_sumRed',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //         Text(
+          //           '$_sumBlue',
+          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          //         ),
+          //       ],
+          //     ),
+          //     Divider(
+          //       color: Color(0xCD949494),
+          //     ),
+          //   ],
+          // ),
           _round == 3 ? _resetButton() : _scoreButton(),
         ],
       ),
@@ -249,8 +261,10 @@ class _BoxingscoreState extends State<Boxingscore> {
             onPressed: () {
               _round++;
               setState(() {
-                _sumRed += _scoreRed + 1;
-                _sumBlue += 9;
+                _scoreR.add(10);
+                _scoreB.add(9);
+                _sumRed += _scoreR[_round - 1];
+                _sumBlue += _scoreB[_round - 1];
               });
             },
             child: Icon(Icons.person),
@@ -267,8 +281,10 @@ class _BoxingscoreState extends State<Boxingscore> {
             onPressed: () {
               _round++;
               setState(() {
-                _sumBlue += _scoreBlue + 1;
-                _sumRed += 9;
+                _scoreR.add(9);
+                _scoreB.add(10);
+                _sumBlue += _scoreB[_round - 1];
+                _sumRed += _scoreR[_round - 1];
               });
             },
             child: Icon(Icons.person),
@@ -293,6 +309,8 @@ class _BoxingscoreState extends State<Boxingscore> {
                   _sumRed = 0;
                   _sumBlue = 0;
                   _round = 0;
+                  _scoreR.clear();
+                  _scoreB.clear();
                 }
               });
             },
@@ -306,4 +324,58 @@ class _BoxingscoreState extends State<Boxingscore> {
       ],
     );
   }
+}
+
+Widget _scoreBoard({int Round = 0}) {
+  return Column(
+    children: [
+      Text(
+        'ROUND $Round',
+        style: TextStyle(fontSize: 12),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            '$_scoreRed',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          ),
+          Text(
+            '$_scoreBlue',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          ),
+        ],
+      ),
+      Divider(
+        color: Color(0xCD949494),
+      ),
+    ],
+  );
+}
+
+Widget _scoreTotal() {
+  return Column(
+    children: [
+      Text(
+        'TOTAL',
+        style: TextStyle(fontSize: 12),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            '$_sumRed',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          ),
+          Text(
+            '$_sumBlue',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+          ),
+        ],
+      ),
+      Divider(
+        color: Color(0xCD949494),
+      ),
+    ],
+  );
 }
