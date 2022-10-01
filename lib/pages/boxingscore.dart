@@ -7,19 +7,15 @@ class Boxingscore extends StatefulWidget {
   State<Boxingscore> createState() => _BoxingscoreState();
 }
 
-List<int> _scoreR = [];
-List<int> _scoreB = [];
-int _scoreRed = 9;
-
-int _scoreBlue = 9;
-int _sumRed = 0;
-int _sumBlue = 0;
-int _round = 0;
-
 class _BoxingscoreState extends State<Boxingscore> {
+  List<int> _scoreR = [];
+  List<int> _scoreB = [];
+  int _sumRed = 0;
+  int _sumBlue = 0;
+  int _round = 0;
+
   @override
   Widget build(BuildContext context) {
-    print(_round);
     return Scaffold(
       appBar: AppBar(
         title: Text('OLYMPIC BOXING SCORING'),
@@ -140,7 +136,11 @@ class _BoxingscoreState extends State<Boxingscore> {
           Expanded(
             child: Column(
               children: [
-                for (int i = 0; i < _round; ++i) _scoreBoard(Round: i + 1),
+                for (int i = 0; i < _round; ++i)
+                  _scoreBoard(
+                      Round: i + 1,
+                      scoreRed: _scoreR[i],
+                      scoreBlue: _scoreB[i]),
                 if (_round == 3) _scoreTotal(),
               ],
             ),
@@ -324,58 +324,58 @@ class _BoxingscoreState extends State<Boxingscore> {
       ],
     );
   }
-}
 
-Widget _scoreBoard({int Round = 0}) {
-  return Column(
-    children: [
-      Text(
-        'ROUND $Round',
-        style: TextStyle(fontSize: 12),
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            '$_scoreRed',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          ),
-          Text(
-            '$_scoreBlue',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          ),
-        ],
-      ),
-      Divider(
-        color: Color(0xCD949494),
-      ),
-    ],
-  );
-}
+  Widget _scoreBoard({int Round = 0, int scoreRed = 9, int scoreBlue = 9}) {
+    return Column(
+      children: [
+        Text(
+          'ROUND $Round',
+          style: TextStyle(fontSize: 12),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              '$scoreRed',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+            ),
+            Text(
+              '$scoreBlue',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+            ),
+          ],
+        ),
+        Divider(
+          color: Color(0xCD949494),
+        ),
+      ],
+    );
+  }
 
-Widget _scoreTotal() {
-  return Column(
-    children: [
-      Text(
-        'TOTAL',
-        style: TextStyle(fontSize: 12),
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            '$_sumRed',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          ),
-          Text(
-            '$_sumBlue',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          ),
-        ],
-      ),
-      Divider(
-        color: Color(0xCD949494),
-      ),
-    ],
-  );
+  Widget _scoreTotal() {
+    return Column(
+      children: [
+        Text(
+          'TOTAL',
+          style: TextStyle(fontSize: 12),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              '$_sumRed',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+            ),
+            Text(
+              '$_sumBlue',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+            ),
+          ],
+        ),
+        Divider(
+          color: Color(0xCD949494),
+        ),
+      ],
+    );
+  }
 }
