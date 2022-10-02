@@ -13,6 +13,8 @@ class _BoxingscoreState extends State<Boxingscore> {
   int _sumRed = 0;
   int _sumBlue = 0;
   int _round = 0;
+  bool _redWin = false;
+  bool _blueWin = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,31 +60,40 @@ class _BoxingscoreState extends State<Boxingscore> {
                 color: Color(0xFFA00000),
                 size: 70,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset('assets/images/flag_ireland.png', scale: 10),
-                      SizedBox(width: 10),
-                      Text(
-                        'IRELAND',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 5),
-                  Row(
-                    children: [
-                      Text(
-                        'HARRINGTON Kellie Anne',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                    ],
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset('assets/images/flag_ireland.png',
+                            scale: 10),
+                        SizedBox(width: 10),
+                        Text(
+                          'IRELAND',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Text(
+                          'HARRINGTON Kellie Anne',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+              if (_redWin)
+                Icon(
+                  Icons.check,
+                  color: Color(0xFF027918),
+                  size: 40,
+                ),
             ],
           ),
           SizedBox(height: 5),
@@ -94,31 +105,40 @@ class _BoxingscoreState extends State<Boxingscore> {
                 color: Color(0xFF0000A0),
                 size: 70,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset('assets/images/flag_thailand.png', scale: 10),
-                      SizedBox(width: 10),
-                      Text(
-                        'THAILAND',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 5),
-                  Row(
-                    children: [
-                      Text(
-                        'SEESONDEE Sudaporn',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                    ],
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset('assets/images/flag_thailand.png',
+                            scale: 10),
+                        SizedBox(width: 10),
+                        Text(
+                          'THAILAND',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Text(
+                          'SEESONDEE Sudaporn',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+              if (_blueWin)
+                Icon(
+                  Icons.check,
+                  color: Color(0xFF027918),
+                  size: 40,
+                ),
             ],
           ),
           SizedBox(height: 20),
@@ -147,103 +167,6 @@ class _BoxingscoreState extends State<Boxingscore> {
           ),
           // score board
 
-          // Column(
-          //   children: [
-          //     Text(
-          //       'ROUND 1',
-          //       style: TextStyle(fontSize: 12),
-          //     ),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         Text(
-          //           '10',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //         Text(
-          //           '$_scoreBlue',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //       ],
-          //     ),
-          //     Divider(
-          //       color: Color(0xCD949494),
-          //     ),
-          //   ],
-          // ),
-          // Column(
-          //   children: [
-          //     Text(
-          //       'ROUND 2',
-          //       style: TextStyle(fontSize: 12),
-          //     ),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         Text(
-          //           '10',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //         Text(
-          //           '$_scoreBlue',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //       ],
-          //     ),
-          //     Divider(
-          //       color: Color(0xCD949494),
-          //     ),
-          //   ],
-          // ),
-          // Column(
-          //   children: [
-          //     Text(
-          //       'ROUND $_round',
-          //       style: TextStyle(fontSize: 12),
-          //     ),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         Text(
-          //           '$_scoreRed',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //         Text(
-          //           '$_scoreBlue',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //       ],
-          //     ),
-          //     Divider(
-          //       color: Color(0xCD949494),
-          //     ),
-          //   ],
-          // ),
-          // SizedBox(height: 10), // score board TOTAL
-          // Column(
-          //   children: [
-          //     Text(
-          //       'TOTAL',
-          //       style: TextStyle(fontSize: 12),
-          //     ),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //       children: [
-          //         Text(
-          //           '$_sumRed',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //         Text(
-          //           '$_sumBlue',
-          //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
-          //         ),
-          //       ],
-          //     ),
-          //     Divider(
-          //       color: Color(0xCD949494),
-          //     ),
-          //   ],
-          // ),
           _round == 3 ? _resetButton() : _scoreButton(),
           SizedBox(height: 5),
         ],
@@ -266,6 +189,12 @@ class _BoxingscoreState extends State<Boxingscore> {
                 _sumRed += _scoreR[_round - 1];
                 _sumBlue += _scoreB[_round - 1];
               });
+              if (_round == 3) {
+                if (_sumRed > _sumBlue) {
+                  _redWin = true;
+                  _blueWin = false;
+                }
+              }
             },
             child: Icon(Icons.person),
             style: ElevatedButton.styleFrom(
@@ -286,6 +215,12 @@ class _BoxingscoreState extends State<Boxingscore> {
                 _sumBlue += _scoreB[_round - 1];
                 _sumRed += _scoreR[_round - 1];
               });
+              if (_round == 3) {
+                if (_sumRed < _sumBlue) {
+                  _blueWin = true;
+                  _redWin = false;
+                }
+              }
             },
             child: Icon(Icons.person),
             style: ElevatedButton.styleFrom(
@@ -311,6 +246,8 @@ class _BoxingscoreState extends State<Boxingscore> {
                   _round = 0;
                   _scoreR.clear();
                   _scoreB.clear();
+                  _redWin = false;
+                  _blueWin = false;
                 }
               });
             },
